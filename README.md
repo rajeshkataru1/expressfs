@@ -7,6 +7,17 @@ You can use it to upload and download files
 3. Run: 
     ``node app.js``
 
+# Running expressfs in OpenShift
+
+1. clone the git repo
+# git clone https://github.com/rajeshkataru1/expressfs
+# cd expressfs
+2. Rub below commands
+# oc new-build --name=expressfs --binary --strategy=docker -n expressfs
+# oc start-build expressfs --from-dir=. --follow -n expressfs
+3. Check status:
+# oc get pods,svc,route -n expressfs
+
 # Running expressfs in docker container 
 
 1. Pull the image locally
