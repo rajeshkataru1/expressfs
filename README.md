@@ -7,16 +7,6 @@ You can use it to upload and download files
 3. Run: 
     ``node app.js``
 
-# Running expressfs in OpenShift
-
-1. clone the git repo
-# git clone https://github.com/rajeshkataru1/expressfs
-# cd expressfs
-2. Rub below commands
-# oc new-build --name=expressfs --binary --strategy=docker -n expressfs
-# oc start-build expressfs --from-dir=. --follow -n expressfs
-3. Check status:
-# oc get pods,svc,route -n expressfs
 
 # Running expressfs in docker container 
 
@@ -48,7 +38,6 @@ Use the web console or CLI:
 oc new-project expressfs
 
 
-⸻
 
 Step 2: Deploy from Git (using web console)
 
@@ -59,7 +48,13 @@ This approach works well:
 	4.	Choose the deployment strategy (defaults are fine).
 	5.	Click Create—OpenShift will build and deploy the app, and auto-generate a Route for access.  ￼ ￼
 
-⸻
+6. clone the git repo
+git clone https://github.com/rajeshkataru1/expressfs
+cd expressfs
+7. Rub below commands
+oc new-build --name=expressfs --binary --strategy=docker -n expressfs
+oc start-build expressfs --from-dir=. --follow -n expressfs
+
 
 Step 3: Verify and Use
 	1.	Check status:
@@ -69,7 +64,7 @@ oc get pods,svc,route -n expressfs
 
 	2.	When ready, grab the App URL from the Route and open it. You’ll land on the expressfs UI where you can upload/download files. ()
 
-⸻
+
 
 Summary
 
