@@ -42,17 +42,26 @@ oc new-project expressfs
 Step 2: Deploy from Git (using web console)
 
 This approach works well:
-	1.	Switch to Developer view → click + Add → select From Git.
-	2.	Git Repo URL: https://github.com/istrate/expressfs
-	3.	Application Name: expressfs
-	4.	Choose the deployment strategy (defaults are fine).
-	5.	Click Create—OpenShift will build and deploy the app, and auto-generate a Route for access.  ￼ ￼
+	
+ 1.	Switch to Developer view → click + Add → select From Git.
+	
+ 2.	Git Repo URL: https://github.com/istrate/expressfs
+	
+ 3.	Application Name: expressfs
+	
+ 4.	Choose the deployment strategy (defaults are fine).
+	
+ 5.	Click Create—OpenShift will build and deploy the app, and auto-generate a Route for access.  ￼ ￼
 
 6. clone the git repo
+   
 git clone https://github.com/rajeshkataru1/expressfs
+
 cd expressfs
-7. Rub below commands
+8. Rub below commands
+
 oc new-build --name=expressfs --binary --strategy=docker -n expressfs
+
 oc start-build expressfs --from-dir=. --follow -n expressfs
 
 
