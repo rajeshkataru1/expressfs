@@ -58,6 +58,7 @@ This approach works well:
 git clone https://github.com/rajeshkataru1/expressfs
 
 cd expressfs
+
 8. Rub below commands
 
 oc new-build --name=expressfs --binary --strategy=docker -n expressfs
@@ -66,12 +67,14 @@ oc start-build expressfs --from-dir=. --follow -n expressfs
 
 
 Step 3: Verify and Use
-	1.	Check status:
+	
+ 1.	Check status:
 
 oc get pods,svc,route -n expressfs
 
 
-	2.	When ready, grab the App URL from the Route and open it. You’ll land on the expressfs UI where you can upload/download files. ()
+	
+ 2.	When ready, grab the App URL from the Route and open it. You’ll land on the expressfs UI where you can upload/download files. ()
 
 
 
