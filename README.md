@@ -26,14 +26,59 @@ You can use it to upload and download files
 
 # Deploy in OpenShift 
 
-Import below YAML definition. It will create a Deployment, Service and Route in `default` project. Route will be automatically generated. Change the values as per your need. Involved resources can be separately created as well. 
+Here’s a straightforward set of steps to deploy expressfs on OpenShift using the GitHub repo you linked:
+
+⸻
+
+🧩 Step 1: Create a new OpenShift Project
+
+Use the web console or CLI:
+
+oc new-project expressfs
+
+
+⸻
+
+Step 2: Deploy from Git (using web console)
+
+This approach works well:
+	1.	Switch to Developer view → click + Add → select From Git.
+	2.	Git Repo URL: https://github.com/istrate/expressfs
+	3.	Application Name: expressfs
+	4.	Choose the deployment strategy (defaults are fine).
+	5.	Click Create—OpenShift will build and deploy the app, and auto-generate a Route for access.  ￼ ￼
+
+⸻
+
+Step 3: Verify and Use
+	1.	Check status:
+
+oc get pods,svc,route -n expressfs
+
+
+	2.	When ready, grab the App URL from the Route and open it. You’ll land on the expressfs UI where you can upload/download files. ()
+
+⸻
+Summary
+
+Step	Action
+1	Create a project (expressfs)
+2	Deploy via From Git or upload YAML
+3	Expose the app with service/route
+4	Access via Route and test file uploads
+
+
+⸻
+
+Alternative way:
+Import below YAML definition. It will create a Deployment, Service and Route in `expressfs` project. Route will be automatically generated. Change the values as per your need. Involved resources can be separately created as well. 
 ```yaml
 ---
 kind: Deployment
 apiVersion: apps/v1
 metadata:  
   name: expressfs     
-  namespace: default  
+  namespace: expressfs  
 spec:
   replicas: 1
   selector:
@@ -70,7 +115,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: expressfs
-  namespace: default
+  namespace: expressfs
 spec:
   selector:
     app: expressfs
@@ -83,7 +128,7 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   name: expressfs
-  namespace: default
+  namespace: expressfs
 spec:
   path: /
   to:
@@ -92,3 +137,7 @@ spec:
   port:
     targetPort: 8080
 ```
+
+
+Check status:
+oc get pods,svc,route -n expressfs
