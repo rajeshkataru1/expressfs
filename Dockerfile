@@ -1,4 +1,4 @@
-FROM node:latest
+FROM registry.access.redhat.com/ubi8/nodejs-18
 
 # Create application directory
 
