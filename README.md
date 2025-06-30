@@ -30,7 +30,7 @@ Here’s a straightforward set of steps to deploy expressfs on OpenShift using t
 
 ⸻
 
-🧩 Step 1: Create a new OpenShift Project
+Step 1: Create a new OpenShift Project
 
 Use the web console or CLI:
 
@@ -59,6 +59,7 @@ oc get pods,svc,route -n expressfs
 	2.	When ready, grab the App URL from the Route and open it. You’ll land on the expressfs UI where you can upload/download files. ()
 
 ⸻
+
 Summary
 
 Step	Action
